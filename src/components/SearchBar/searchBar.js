@@ -1,12 +1,9 @@
 import './searchBar.css'
 
-function SearchBar() {
+function SearchBar(props) {
     return(
         <div className="search-bar-area">
-            <form>
-                <input type="text" placeholder="Find music" />
-                <button>Search</button>
-            </form>
+            <button onClick={props.onGetPlaylist} >{props.buttonTitle} </button>
         </div>
     )
 }

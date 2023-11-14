@@ -1,6 +1,6 @@
 .search-bar-area {
-    padding-top: 20px;
-    height: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,7 +10,6 @@
 .search-bar-area form {
     display: flex;
     flex-direction: column;
-    width: 300px;
 }
 
 .search-bar-area input {
@@ -24,11 +23,18 @@
 }
 
 .search-bar-area button {
-    padding: 15px 40px;
+    padding: 20px 40px;
     border: none;
-    border-radius: 30px;
-    background-color: rgb(6, 6, 67);
+    border-radius: 100px;
+    background-color: #DD4B4B;
     color: white;
-    font-size: 20px;
-    text-transform: uppercase;
+    font-size: 28px;
+    /* text-transform: uppercase; */
+}
+
+.search-bar-area button:hover {
+    transform: scale(1.1);
+    transition-duration: .5s;
+    transition-property: transform;
+    cursor: pointer;
 }

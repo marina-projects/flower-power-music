@@ -2,6 +2,7 @@ import './App.css';
 import SearchBar from '../SearchBar/searchBar';
 import SearchResults from '../SearchResults/searchResults';
 import AddPlaylist from '../AddPlaylist/addPlaylist';
+import Footer from '../Footer/footer';
 import { resultsArray } from '../../arrays/resultArray';
 import { useState, useCallback } from 'react';
 
@@ -10,7 +11,16 @@ import { useState, useCallback } from 'react';
 
 function App() {
   const [playlist, setPlaylist] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('New playlist');
+  const [playlistAreaDisplay, setPlaylistAreaDisplay] = useState('none');
+  const [buttonTitle, setButtonTitle] = useState('Get a random 30 songs');
+
+  const playlistDisplay = () => {
+    setPlaylistAreaDisplay('flex');
+    setSearchResults(resultsArray);
+    setButtonTitle('Show another songs');
+  }
 
   // addTrack and removeTrack are sending to <Track /> component to use them on onClick event 
 
@@ -37,19 +47,18 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Flower Power</h1>      
-      </header>
-      <SearchBar />
-      <div className='playlists-area'>
+      <header className="App-header"></header>
+      <SearchBar onGetPlaylist={playlistDisplay} buttonTitle={buttonTitle}/>
+      <div className='playlists-area' style={{display: playlistAreaDisplay}}>
         <div className="search-results-area">
-          <h2>Search results</h2>
-          <SearchResults results={resultsArray} onAddTrack={addTrack} />
+          <h2>Listen to this sunny songs!</h2>
+          <SearchResults results={searchResults} onAddTrack={addTrack} />
         </div>
-        <div className="add-playlist-area">
+        <div className="add-playlist-area" style={{display: 'none'}} >
           <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
