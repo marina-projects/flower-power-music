@@ -1,0 +1,49 @@
+h2, h3, p {
+  color: white;
+  margin: 0;
+}
+
+
+.App {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #787f8e;
+}
+
+.App-header {
+  background-color: #3e195e;
+  min-height: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.playlists-area {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.search-results-area, .add-playlist-area {
+  background-color: #3e195e;
+  padding: 30px 30px;
+  border-radius: 5px;  
+}
+
+.search-results-area {
+  width: 50%;
+}
+
+.add-playlist-area {
+  width: 30%;
+}

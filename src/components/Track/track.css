@@ -1,0 +1,25 @@
+.track-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #ffffff40;
+}
+
+.track-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 10px;
+}
+
+.track-texts p {
+    font-weight: 300;
+}
+
+.track-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
