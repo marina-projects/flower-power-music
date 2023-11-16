@@ -14,7 +14,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('New playlist');
   const [playlistAreaDisplay, setPlaylistAreaDisplay] = useState('none');
-  const [buttonTitle, setButtonTitle] = useState('Get a random 30 songs');
+  const [buttonTitle, setButtonTitle] = useState('Get a random 30 songs!');
+  const [sidebarDisplay, setSidebarDisplay] = useState('none');
 
   const playlistDisplay = () => {
     setPlaylistAreaDisplay('flex');
@@ -26,9 +27,9 @@ function App() {
 
   const addTrack = useCallback(
     (track) => {
+      setSidebarDisplay('flex');
       if (playlist.some((savedTrack) => savedTrack.id === track.id))
         return;
-
       setPlaylist((prevTracks) => [...prevTracks, track]);
     },
     [playlist]
@@ -47,14 +48,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <div className="App-header"></div>
       <SearchBar onGetPlaylist={playlistDisplay} buttonTitle={buttonTitle}/>
       <div className='playlists-area' style={{display: playlistAreaDisplay}}>
         <div className="search-results-area">
           <h2>Listen to this sunny songs!</h2>
           <SearchResults results={searchResults} onAddTrack={addTrack} />
         </div>
-        <div className="add-playlist-area" style={{display: 'none'}} >
+        <div className="add-playlist-area" style={{display: sidebarDisplay}} >
           <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} />
         </div>
       </div>
