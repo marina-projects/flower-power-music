@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import './SignUpForm.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
-import auth from '../../firebase/config';
+import firebase from '../../firebase/config';
 
 const SignUpForm = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ const SignUpForm = () => {
             <form
                 onSubmit={(event) => {
                     event.preventDefault();
-                    createUserWithEmailAndPassword(auth, email, password)
+                    createUserWithEmailAndPassword(firebase, email, password)
                         .then((userCredential) => {
                             const user = userCredential.user;
                             alert(`Signed up! User ID: ${user.uid}`);
