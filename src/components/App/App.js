@@ -5,6 +5,8 @@ import AddPlaylist from '../AddPlaylist/addPlaylist';
 import Footer from '../Footer/footer';
 import { resultsArray } from '../../arrays/resultArray';
 import { useState, useCallback } from 'react';
+import WebApi from '../WebApi/WebApi';
+import SignUpForm from '../SignUpForm/SignUpForm';
 
 
 // UseCallback is for caching issues, it should wrap function with state updating and has a second argument - what state should be updating in current render
@@ -49,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-header"></div>
+      <WebApi />
       <SearchBar onGetPlaylist={playlistDisplay} buttonTitle={buttonTitle}/>
       <div className='playlists-area' style={{display: playlistAreaDisplay}}>
         <div className="search-results-area">
@@ -59,6 +62,7 @@ function App() {
           <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} />
         </div>
       </div>
+      <SignUpForm />
       <Footer />
     </div>
   );
