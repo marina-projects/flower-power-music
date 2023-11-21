@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { FirebaseContext } from "./FirebaseContext";
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged, getAuth } from "firebase/auth";
 
 const AuthContext = createContext();
 
@@ -80,18 +80,19 @@ function useProvideAuth() {
   // Because this sets state in the callback it will cause any ...
   // ... component that utilizes this hook to re-render with the ...
   // ... latest auth object.
-  // useEffect(() => {
-  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setUser(user);
-  //     } else {
-  //       setUser(false);
-  //     }
-  //   });
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(false);
+      }
+    });
 
-  //   // Cleanup subscription on unmount
-  //   return () => unsubscribe();
-  // }, [firebase]);
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
 
   // Return the user object and auth methods
   return {
