@@ -7,6 +7,7 @@ const SpotifyGetPlaylists = () => {
 
     const [token, setToken] = useState('');
     const [data, setData] = useState({});
+    // const [dataArray, setDataArray] = useState([]);
 
     useEffect(() => {
         if(localStorage.getItem('accessToken')) {
@@ -23,15 +24,27 @@ const SpotifyGetPlaylists = () => {
           })
           .then((response) => {
             setData(response.data);
+            console.log(data);
           })
           .catch((error) => {
             console.log(error);
           });
       };
 
+    // setDataArray(data.tracks.items);
+
     return (
-        <button onClick={handleGetPlaylists}>Get Playlist</button>
+        <div>
+            <button onClick={handleGetPlaylists}>Get Playlist</button>
+            <p>{data.name}</p>
+                <ul>
+                    {data.tracks.items.map((item) => (
+                        <li key={item.track.id}>{item.track.name}</li>
+                    ))}
+                </ul>
+        </div>
     )
+       
 }
 
 export default SpotifyGetPlaylists;
