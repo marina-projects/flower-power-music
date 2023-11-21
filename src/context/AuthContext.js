@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { FirebaseContext } from "./FirebaseContext";
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { signOut, onAuthStateChanged, getAuth } from "firebase/auth";
+import { signOut, getAuth } from "firebase/auth";
 
 const AuthContext = createContext();
 
@@ -88,11 +88,12 @@ function useProvideAuth() {
       } else {
         setUser(false);
       }
+      setIsLoading(false);
     });
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, [firebase]);
 
   // Return the user object and auth methods
   return {
@@ -100,6 +101,7 @@ function useProvideAuth() {
     signin,
     signup,
     signout,
+    isLoading,
     // sendPasswordResetEmail,
     // confirmPasswordReset,
   };
