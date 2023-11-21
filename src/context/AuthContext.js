@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { FirebaseContext } from "./FirebaseContext";
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
 import { signInWithEmailAndPassword } from "firebase/auth";
-import firebase from '../../src/firebase/config';
-
+import { signOut } from "firebase/auth";
 
 const AuthContext = createContext();
 
@@ -25,6 +24,8 @@ function useProvideAuth() {
   // const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
   const { firebase } = useContext(FirebaseContext);
+  const auth = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
 
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the user to state.
@@ -43,17 +44,19 @@ function useProvideAuth() {
         setUser(response.user);
         callback();
         return response.user;
-      });
+      })
+      .catch((error) => {
+        alert('This user already exists');
+      })
+      ;
   };
 
-  // const signout = () => {
-  //   return firebase
-  //     .auth()
-  //     .signOut()
-  //     .then(() => {
-  //       setUser(false);
-  //     });
-  // };
+  const signout = () => {
+    return signOut(firebase, auth)
+      .then(() => {
+        setUser(false);
+      });
+  };
 
   // const sendPasswordResetEmail = (email) => {
   //   return firebase
@@ -95,7 +98,7 @@ function useProvideAuth() {
     user,
     signin,
     signup,
-    // signout,
+    signout,
     // sendPasswordResetEmail,
     // confirmPasswordReset,
   };

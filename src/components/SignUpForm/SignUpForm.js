@@ -1,13 +1,14 @@
 // SignUpForm.js
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import './SignUpForm.css';
-import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
-import firebase from '../../firebase/config';
 import { useAuth } from "../../context/AuthContext";
+import { WEB_APP } from "../../constants/routes";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = useNavigate();
 
     const auth = useAuth();
 
@@ -16,13 +17,7 @@ const SignUpForm = () => {
             <form
                 onSubmit={(event) => {
                     event.preventDefault();
-                    // createUserWithEmailAndPassword(firebase, email, password)
-                    //     .then((userCredential) => {
-                    //         const user = userCredential.user;
-                    //         alert(`Signed up! User ID: ${user.uid}`);
-                    //     })
-                    //     .catch((error) => alert(error.message));
-                    auth.signup({ email, password, callback: () => {} })
+                    auth.signup({ email, password, callback: () => history(WEB_APP) })
                     setEmail('');
                     setPassword('');
                 }}
@@ -31,11 +26,13 @@ const SignUpForm = () => {
                 <input
                     type="email"
                     value={email}
+                    placeholder="Enter email"
                     onChange={(event) => { setEmail(event.target.value) }}
                 />
                 <label>Password</label>
                 <input
                     type="password"
+                    placeholder="Set a password. Minimum 6 symbols"
                     value={password}
                     onChange={(event) => { setPassword(event.target.value) }}
                 />

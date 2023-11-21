@@ -1,7 +1,25 @@
 .navigation-bar {
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 li {
     list-style-type: none;
+    cursor: pointer;
+    display: inline;
+    
+}
+
+.link {
+    text-decoration: none;
+    background-color: #652a68;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+li .link:hover {
+    background-color: #8b3b8f;
 }

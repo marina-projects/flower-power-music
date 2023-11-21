@@ -1,12 +1,25 @@
 import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { WEB_APP } from "../../constants/routes";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginForm = () => {
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
+    let history = useNavigate();
+
+    const auth = useAuth();
 
     return(
         <div className="form-container">
-            <form>
+            <form onSubmit={(event) => {
+                event.preventDefault();
+                auth.signin({
+                    email: emailValue,
+                    password: passwordValue,
+                    callback: () => history(WEB_APP),
+                })
+            }}>
             <label>What is your email</label>
                 <input
                     type="email"

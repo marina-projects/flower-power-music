@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route } from 'react-route-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LOGIN } from '../../constants/routes';
 
@@ -7,22 +7,26 @@ const PrivateRoute = ({ children, ...rest}) => {
     let auth = useAuth();
 
     return (
-        <Route
-            {... rest}
-            render={({location}) => 
-                auth.user ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: LOGIN,
-                            state: {from: location}
-                        }}
-                    />
-                )
-            }
-
-        />
+        // <div>
+        //     <Routes>
+        //         <Route
+        //         {... rest}
+        //         render={({location}) => 
+                    auth.user ? (
+                        children
+                    ) : (
+                        <Navigate
+                            to={{
+                                pathname: LOGIN,
+                                // state: {from: location}
+                            }}
+                        />
+                    )
+        //         }
+        //         />
+        //     </Routes>
+        // </div>
+        
     )
 }
 
