@@ -9,3 +9,8 @@ h1 {
 p {
     color: black;
 }
+
+button {
+    display: block;
+    margin: 20px auto;
+}

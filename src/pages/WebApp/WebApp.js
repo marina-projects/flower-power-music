@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './WebApp.css';
+import SpotifyGetPlaylists from './components/SpotifyGetPlaylists/SpotifyGetPlaylists';
 
 const CLIENT_ID = "6712f703e1f04150b1dca75c9b8defac";
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -49,6 +50,7 @@ const WebApp = () => {
         <div className='webapp'>
             <h1>Hello!</h1>
             <button onClick={handleLogin}>Login to spotify</button>
+            <SpotifyGetPlaylists />
         </div>
     );
 }
