@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import { FirebaseContext } from "./FirebaseContext";
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // Изменение импорта
+import { signInWithEmailAndPassword } from "firebase/auth";
+import firebase from '../../src/firebase/config';
+
 
 const AuthContext = createContext();
 
@@ -25,20 +29,16 @@ function useProvideAuth() {
   // Wrap any Firebase methods we want to use making sure ...
   // ... to save the user to state.
   const signin = ({ email, password, callback }) => {
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
+    return signInWithEmailAndPassword(firebase, email, password)
       .then((response) => {
         setUser(response.user);
         callback();
         return response.user;
       });
   };
-
+  
   const signup = ({ email, password, callback }) => {
-    return firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
+    return createUserWithEmailAndPassword(firebase, email, password)
       .then((response) => {
         setUser(response.user);
         callback();
@@ -46,57 +46,57 @@ function useProvideAuth() {
       });
   };
 
-  const signout = () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        setUser(false);
-      });
-  };
+  // const signout = () => {
+  //   return firebase
+  //     .auth()
+  //     .signOut()
+  //     .then(() => {
+  //       setUser(false);
+  //     });
+  // };
 
-  const sendPasswordResetEmail = (email) => {
-    return firebase
-      .auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        return true;
-      });
-  };
+  // const sendPasswordResetEmail = (email) => {
+  //   return firebase
+  //     .auth()
+  //     .sendPasswordResetEmail(email)
+  //     .then(() => {
+  //       return true;
+  //     });
+  // };
 
-  const confirmPasswordReset = (code, password) => {
-    return firebase
-      .auth()
-      .confirmPasswordReset(code, password)
-      .then(() => {
-        return true;
-      });
-  };
+  // const confirmPasswordReset = (code, password) => {
+  //   return firebase
+  //     .auth()
+  //     .confirmPasswordReset(code, password)
+  //     .then(() => {
+  //       return true;
+  //     });
+  // };
 
   // Subscribe to user on mount
   // Because this sets state in the callback it will cause any ...
   // ... component that utilizes this hook to re-render with the ...
   // ... latest auth object.
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(false);
-      }
-    });
+  // useEffect(() => {
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUser(user);
+  //     } else {
+  //       setUser(false);
+  //     }
+  //   });
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
-  }, [firebase]);
+  //   // Cleanup subscription on unmount
+  //   return () => unsubscribe();
+  // }, [firebase]);
 
   // Return the user object and auth methods
   return {
     user,
     signin,
     signup,
-    signout,
-    sendPasswordResetEmail,
-    confirmPasswordReset,
+    // signout,
+    // sendPasswordResetEmail,
+    // confirmPasswordReset,
   };
 }
