@@ -5,7 +5,7 @@ import AddPlaylist from "../AddPlaylist/addPlaylist";
 import {resultsArray} from "../../arrays/resultArray";
 import './Home.css';
 
-const HomeContent = () => {
+const HomeContent = (props) => {
 
   // UseCallback is for caching issues, it should wrap function with state updating and has a second argument - what state should be updating in current render
 
@@ -17,8 +17,9 @@ const HomeContent = () => {
   const [sidebarDisplay, setSidebarDisplay] = useState('none');
 
   const playlistDisplay = () => {
+    props.handleGetPlaylists();
     setPlaylistAreaDisplay('flex');
-    setSearchResults(resultsArray);
+    setSearchResults(props.resultArray);
     setButtonTitle('Show another songs');
   }
 
@@ -27,7 +28,7 @@ const HomeContent = () => {
   const addTrack = useCallback(
     (track) => {
       setSidebarDisplay('flex');
-      if (playlist.some((savedTrack) => savedTrack.id === track.id))
+      if (playlist.some((savedTrack) => savedTrack.track.id === track.track.id))
         return;
       setPlaylist((prevTracks) => [...prevTracks, track]);
     },
@@ -36,7 +37,7 @@ const HomeContent = () => {
 
   const removeTrack = useCallback((track) => {
     setPlaylist((prevTracks) =>
-      prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
+      prevTracks.filter((currentTrack) => currentTrack.track.id !== track.track.id)
     );
   }, []
   );
@@ -47,11 +48,11 @@ const HomeContent = () => {
 
     return (
         <div className="home-content">
-            <SearchBar onGetPlaylist={playlistDisplay} buttonTitle={buttonTitle}/>
+            <SearchBar onGetPlaylist={playlistDisplay} buttonTitle={buttonTitle} handleGetPlaylists={props.handleGetPlaylists} />
             <div className='playlists-area' style={{display: playlistAreaDisplay}}>
                 <div className="search-results-area">
                     <h2>Listen to this sunny songs!</h2>
-                    <SearchResults results={searchResults} onAddTrack={addTrack} />
+                    <SearchResults results={props.resultArray} onAddTrack={addTrack} />
                 </div>
                 <div className="add-playlist-area" style={{display: sidebarDisplay}} >
                     <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} />

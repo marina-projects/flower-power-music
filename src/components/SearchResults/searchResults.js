@@ -4,9 +4,9 @@ import Track from '../Track/Track';
 function SearchResults (props) {
     return(
         <div>
-            {props.results.map((track) => {
+            {props.results.map((i) => {
                 return (
-                    <Track song={track.song} singer={track.singer} onAdd={props.onAddTrack} track={track} />
+                    <Track song={i.track.name} singer={i.track.artists[0].name} onAdd={props.onAddTrack} track={i} />
                 )
             })}
         </div>

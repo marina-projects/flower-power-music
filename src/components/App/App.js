@@ -1,36 +1,50 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import * as ROUTES from '../../constants/routes';
-import SignUpForm from '../SignUpForm/SignUpForm';
+import React, {useEffect, useState} from 'react';
 import Footer from '../Footer/footer';
-import NavigationBar from '../NavigationBar/NavigationBar';
 import HomeContent from '../Home/Home';
 import './App.css';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import WebApp from '../../pages/WebApp';
-import LoginForm from '../Login/login';
-import { useAuth } from '../../context/AuthContext';
+import Header from '../Header/header';
+import axios from 'axios';
+
+const PLAYLISTS_ENDPOINT = "https://api.spotify.com/v1/playlists/2F4zH00XCKtHV7eMG2E3Qq/tracks";
 
 function App() {
-  const { isLoading } = useAuth;
+
+  const [token, setToken] = useState('');
+  const [dataArray, setDataArray] = useState([]);
+
+  useEffect(() => {
+      if(localStorage.getItem('accessToken')) {
+          setToken(localStorage.getItem('accessToken'));
+      }
+  }, []);
+
+  useEffect(() => {
+      console.log(dataArray);
+  }, [dataArray]);
+
+  const handleGetPlaylists = async () => {
+      await axios
+        .get(PLAYLISTS_ENDPOINT, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
+        .then((response) => {
+          const playlistItems = response.data.items;
+          setDataArray(playlistItems);
+          console.log(dataArray)
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
 
   return (
-    isLoading ? (<h1>Loading...</h1>) :
-    (<Router>
       <div className="App">
-        <div className="App-header"></div>
-        <NavigationBar />
-        <Routes>
-          <Route path={ROUTES.SIGN_UP} element={<SignUpForm />}></Route>
-          <Route path={ROUTES.LOGIN} element={<LoginForm />}></Route>
-          <Route path={ROUTES.WEB_APP} element={<WebApp />}></Route>
-{/* 
-          <Route path={ROUTES.WEB_APP} element={<PrivateRoute><WebApp /></PrivateRoute>}></Route> */}
-          <Route path={ROUTES.HOME} element={<HomeContent />}></Route>
-        </Routes>
+        <Header />
+        <HomeContent resultArray={dataArray} handleGetPlaylists={handleGetPlaylists} />
         <Footer />
       </div>
-    </Router>)
   );
 }
 

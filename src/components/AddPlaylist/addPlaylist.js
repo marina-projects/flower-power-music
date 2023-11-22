@@ -8,9 +8,9 @@ function AddPlaylist (props) {
             <h2>Add to playlist</h2>
             <h3>Playlist title</h3>
             <input type="text" placeholder='Create a title for your custom playlist' onChange={props.onTitle} value={props.inputValue} />
-            {props.playlistArray.map((track) => {
+            {props.playlistArray.map((i) => {
                 return (
-                    <Track song={track.song} singer={track.singer} key={track.id} track={track} isRemoval={true} onRemove={props.onRemove} />
+                    <Track song={i.track.name} singer={i.track.artists[0].name} key={i.id} track={i} isRemoval={true} onRemove={props.onRemove} />
                 )
             })}
             <button>Save to spotify</button>
