@@ -22,3 +22,10 @@
     font-size: 20px;
     text-transform: uppercase;
   }
+
+  .App-header button:hover {
+    transform: scale(1.1);
+    transition-duration: .5s;
+    transition-property: transform;
+    cursor: pointer;
+}

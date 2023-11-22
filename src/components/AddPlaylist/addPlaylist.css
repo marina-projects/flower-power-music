@@ -7,3 +7,43 @@
 /* h2 {
     color: white;
 } */
+
+.playlist-title-area {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-title-area h3 {
+    margin-right: 15px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.playlist-title-area input {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+}
+
+.custom-playlist button {
+    margin-top: 20px !important;
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.custom-playlist button:hover {
+    transform: scale(1.1);
+    transition-duration: .5s;
+    transition-property: transform;
+    cursor: pointer;
+}
+
+.custom-playlist h2 {
+    margin-bottom: 30px !important;
+}

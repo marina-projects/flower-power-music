@@ -6,9 +6,9 @@ function SearchResults (props) {
         <div>
             {props.results.map((i) => {
                 return (
-                    <Track song={i.track.name} singer={i.track.artists[0].name} onAdd={props.onAddTrack} track={i} />
+                    <Track song={i.track.name} singer={i.track.artists[0].name} onAdd={props.onAddTrack} track={i} trackUrl={i.track.href} />
                 )
-            })}
+            })}s
         </div>
     )            
 }
