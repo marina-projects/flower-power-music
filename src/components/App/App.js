@@ -4,6 +4,7 @@ import * as SPOT from '../../constants/spotifyData';
 import Header from '../Header/header';
 import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
 import HomeContent from '../Home/Home';
+import AudioExample from '../Audio Example/audioExample';
 import Footer from '../Footer/footer';
 import './App.css';
 
@@ -79,9 +80,10 @@ function App() {
     return shuffledArray.slice(0, numberOfTracks);
   };
 
-  // устанавливаем 10 случайных песен в стейт
+  // устанавливаем только те, у которых есть превью прослушивания, и выбираем 10 рандомных
   useEffect(() => {
-    const randomTracks = getRandomTracks(dataArray, 10);
+    const filteredTracks = dataArray.filter(track => track.track.preview_url);
+    const randomTracks = getRandomTracks(filteredTracks, 10);
     setRandomTracksArray(randomTracks);
   }, [dataArray]);
 

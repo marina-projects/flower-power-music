@@ -1,0 +1,12 @@
+.audio-example {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 10%;
+
+}
+
+.icons {
+    width: 20px;
+    height: 20px;
+}

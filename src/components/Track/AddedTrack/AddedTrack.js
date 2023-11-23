@@ -2,7 +2,7 @@ import './track.css';
 import React, { useCallback } from 'react';
 import AudioExample from '../Audio Example/audioExample';
 
-function Track (props) {
+function AddedTrack (props) {
 
     const addTrack = useCallback(
         (event) => {
@@ -31,7 +31,6 @@ function Track (props) {
 
     return (
         <div className="track-area">
-             <AudioExample idTrack={props.idTrack} token={props.token}/>
             <div className="track-texts">
                 <h3>{props.song}</h3>
                 <p>{props.singer}</p>
@@ -41,4 +40,4 @@ function Track (props) {
     )
 }
 
-export default Track;
+export default AddedTrack;

@@ -10,7 +10,7 @@ const HomeContent = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('New playlist');
   const [playlistAreaDisplay, setPlaylistAreaDisplay] = useState('none');
-  const [buttonTitle, setButtonTitle] = useState('Get a random 30 songs!');
+  const [buttonTitle, setButtonTitle] = useState('Get a random 10 songs!');
   const [sidebarDisplay, setSidebarDisplay] = useState('none');
 
   // вспомогательный вывод токена в консоль для проверки
@@ -101,7 +101,7 @@ const HomeContent = (props) => {
       <div className='playlists-area' style={{ display: playlistAreaDisplay }}>
         <div className="search-results-area">
           <h2>Listen to this sunny songs!</h2>
-          <SearchResults results={props.resultArray} onAddTrack={addTrack} />
+          <SearchResults results={props.resultArray} onAddTrack={addTrack} token={props.token} />
         </div>
         <div className="add-playlist-area" style={{ display: sidebarDisplay }} >
           <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} sendPlaylistToSpotify={sendPlaylistToSpotify} />
