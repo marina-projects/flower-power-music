@@ -16,6 +16,7 @@ function App() {
 
   // подключаем Spotify
   useEffect(() => {
+    // не очень поняла, что это за метод, но он позволяет даже с измнением URL (после запроса из Spotify) менять видимость компонентов
     window.onhashchange = () => {
       if (window.location.hash) {
         const { access_token, expires_in, token_type } = SPOT.getReturnedParamsFromSpotifyAuth(window.location.hash);
