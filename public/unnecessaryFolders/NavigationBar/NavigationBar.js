@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from '../routes';
 import './NavigationBar.css'
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 
 const NavigationBar = () => {

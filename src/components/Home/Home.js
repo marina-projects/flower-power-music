@@ -7,7 +7,6 @@ import axios from "axios";
 
 const HomeContent = (props) => {
   const [playlist, setPlaylist] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState('New playlist');
   const [playlistAreaDisplay, setPlaylistAreaDisplay] = useState('none');
   const [buttonTitle, setButtonTitle] = useState('Get a random 10 songs!');
@@ -23,7 +22,6 @@ const HomeContent = (props) => {
   const playlistDisplay = () => {
     props.handleGetPlaylists();
     setPlaylistAreaDisplay('flex');
-    setSearchResults(props.resultArray);
     setButtonTitle('Show another songs');
   }
 

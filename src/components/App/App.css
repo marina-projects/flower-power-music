@@ -1,6 +1,7 @@
 h2, h3, p {
   color: white;
   margin: 0;
+  text-align: left;
 }
 
 html, body, #root {
@@ -26,14 +27,6 @@ div {
 
 .App button {
   margin: 10px auto;
-}
-
-.footer {
-  background-image: url('./footer-back.webp');
-  background-size: cover;
-  background-position: center center;
-  min-height: 150px;
-  width: 100%;
 }
 
 .playlists-area {

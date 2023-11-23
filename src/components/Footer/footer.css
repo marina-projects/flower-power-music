@@ -1,0 +1,9 @@
+
+.footer {
+    background-image: url('./footer-back.webp');
+    background-size: cover;
+    background-position: center center;
+    min-height: 150px;
+    width: 100%;
+  }
+  

@@ -1,6 +1,5 @@
-import './track.css';
+import '../../Track/track.css';
 import React, { useCallback } from 'react';
-import AudioExample from '../Audio Example/audioExample';
 
 function AddedTrack (props) {
 

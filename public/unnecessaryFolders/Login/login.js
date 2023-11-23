@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { WEB_APP } from "../../constants/routes";
-import { useAuth } from "../../context/AuthContext";
+import { WEB_APP } from "../routes";
+import { useAuth } from "../context/AuthContext";
 
 const LoginForm = () => {
     const [emailValue, setEmailValue] = useState('');

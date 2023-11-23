@@ -1,5 +1,5 @@
 import './addPlaylist.css';
-import Track from '../Track/Track';
+import AddedTrack from '../Track/AddedTrack/AddedTrack';
 
 
 function AddPlaylist (props) {
@@ -13,7 +13,7 @@ function AddPlaylist (props) {
             
             {props.playlistArray.map((i) => {
                 return (
-                    <Track song={i.track.name} singer={i.track.artists[0].name} key={i.id} track={i} isRemoval={true} onRemove={props.onRemove} />
+                    <AddedTrack song={i.track.name} singer={i.track.artists[0].name} key={i.id} track={i} isRemoval={true} onRemove={props.onRemove} />
                 )
             })}
             <button onClick={props.sendPlaylistToSpotify}>Save to spotify</button>

@@ -1,8 +1,8 @@
 // SignUpForm.js
 import React, { useState } from "react";
 import './SignUpForm.css';
-import { useAuth } from "../../context/AuthContext";
-import { WEB_APP } from "../../constants/routes";
+import { useAuth } from "../context/AuthContext";
+import { WEB_APP } from "../routes";
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
