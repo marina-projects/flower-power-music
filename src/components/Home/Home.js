@@ -2,7 +2,6 @@ import React, {useState, useCallback} from "react";
 import SearchBar from "../SearchBar/searchBar";
 import SearchResults from "../SearchResults/searchResults";
 import AddPlaylist from "../AddPlaylist/addPlaylist";
-import {resultsArray} from "../../arrays/resultArray";
 import './Home.css';
 
 const HomeContent = (props) => {
