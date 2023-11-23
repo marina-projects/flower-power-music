@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../Footer/footer';
-import HomeContent from '../Home/Home';
-import './App.css';
-import Header from '../Header/header';
 import axios from 'axios';
 import * as SPOT from '../../constants/spotifyData';
+import Header from '../Header/header';
 import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
+import HomeContent from '../Home/Home';
+import Footer from '../Footer/footer';
+import './App.css';
 
 function App() {
   const [token, setToken] = useState('');
@@ -14,24 +14,28 @@ function App() {
   const [homeContentDisplay, setHomeContentDisplay] = useState('none');
   const [welcomeDisplay, setWelcomeDisplay] = useState('flex');
 
+  // функция для логина через Spotify, передаем на кнопку, данные берутся из spotifyData.js и подставляются в URL - это из документации Spotify
+  const handleLogin = () => {
+    window.location = `${SPOT.SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${SPOT.CLIENT_ID}&redirect_uri=${SPOT.REDIRECT_URL_AFTER_LOGIN}&scope=${SPOT.SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
+  }
+
   // подключаем Spotify
-  useEffect(() => {
     // не очень поняла, что это за метод, но он позволяет даже с измнением URL (после запроса из Spotify) менять видимость компонентов
+  useEffect(() => {
     window.onhashchange = () => {
       if (window.location.hash) {
         const { access_token, expires_in, token_type } = SPOT.getReturnedParamsFromSpotifyAuth(window.location.hash);
-
+  
         localStorage.clear();
         localStorage.setItem("accessToken", access_token);
         localStorage.setItem("tokenType", token_type);
         localStorage.setItem("expiresIn", expires_in);
-
+  
+        setToken(access_token);
         setHomeContentDisplay('flex');
         setWelcomeDisplay('none');
       }
     };
-
-    // вызываем обработчик сразу при загрузке компонента
     window.onhashchange();
   }, []);
 
@@ -81,11 +85,6 @@ function App() {
     setRandomTracksArray(randomTracks);
   }, [dataArray]);
 
-  // функция для логина через Spotify, передаем на кнопку
-  const handleLogin = () => {
-    window.location = `${SPOT.SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${SPOT.CLIENT_ID}&redirect_uri=${SPOT.REDIRECT_URL_AFTER_LOGIN}&scope=${SPOT.SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
-  }
-
   return (
     <div className="App">
       <Header />
@@ -93,7 +92,7 @@ function App() {
         <WelcomeScreen handleLogin={handleLogin} />
       </div>
       <div style={{ display: homeContentDisplay }}>
-        <HomeContent resultArray={randomTracksArray} handleGetPlaylists={handleGetPlaylists} />
+        <HomeContent resultArray={randomTracksArray} handleGetPlaylists={handleGetPlaylists} token={token} />
       </div>
       <Footer />
     </div>

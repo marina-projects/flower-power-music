@@ -16,7 +16,7 @@ function AddPlaylist (props) {
                     <Track song={i.track.name} singer={i.track.artists[0].name} key={i.id} track={i} isRemoval={true} onRemove={props.onRemove} />
                 )
             })}
-            <button>Save to spotify</button>
+            <button onClick={props.sendPlaylistToSpotify}>Save to spotify</button>
         </div>
     )            
 }

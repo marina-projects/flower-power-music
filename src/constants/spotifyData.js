@@ -8,6 +8,8 @@ export const SCOPES = [
     "user-read-currently-playing",
     "user-read-playback-state",
     "playlist-read-private",
+    "playlist-modify-public",
+    "playlist-modify-private"
   ];
 export const SPACE_DELIMITER = "%20";
 export const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
