@@ -13,9 +13,9 @@ const HomeContent = (props) => {
   const [buttonTitle, setButtonTitle] = useState('Get a random 30 songs!');
   const [sidebarDisplay, setSidebarDisplay] = useState('none');
 
+  // вспомогательный вывод токена в консоль для проверки
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
-      // Используйте props.token напрямую, без вызова setToken
       console.log("Token:", props.token);
     }
   }, [props.token]);
@@ -48,10 +48,13 @@ const HomeContent = (props) => {
     setPlaylistTitle(event.target.value);
   }
 
+  // Отправка кастомного плейлиста в аккаунт Spotify
   const createPlaylist = async () => {
     try {
+      // вспомогательный вывод для проверки
       console.log('Token before request:', props.token);
   
+      // метод axios.post для отправки данных и создание плелиста
       const response = await axios.post(
         `https://api.spotify.com/v1/me/playlists`,
         {
@@ -68,6 +71,7 @@ const HomeContent = (props) => {
 
       const playlistId = response.data.id;
 
+      // метод axios.post для добавления треков в созданный плейлист
       await axios.post(
         `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
         {
