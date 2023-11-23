@@ -4,7 +4,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
 }
 
 .welcome-screen button {
@@ -26,12 +25,14 @@
 }
 
 .welcome-screen p {
-    color: black;
+    margin-top: 20px;
+    color: rgb(35, 35, 35);
     margin-bottom: 50px;
 }
 
 .welcome-screen h1 {
-    color: rgb(74, 13, 79);
+    color: rgb(35, 35, 35);
+    font-weight: 500;
 }
 
 .welcome-screen h2 {

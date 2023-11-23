@@ -4,7 +4,6 @@ import * as SPOT from '../../constants/spotifyData';
 import Header from '../Header/header';
 import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
 import HomeContent from '../Home/Home';
-import AudioExample from '../Audio Example/audioExample';
 import Footer from '../Footer/footer';
 import './App.css';
 

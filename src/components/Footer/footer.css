@@ -3,7 +3,12 @@
     background-image: url('./footer-back.webp');
     background-size: cover;
     background-position: center center;
-    min-height: 150px;
+    min-height: 80px;
     width: 100%;
   }
   
+  @media(max-width: 767px) {
+    .footer {
+      min-height: 30px;
+    }
+  }
