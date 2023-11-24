@@ -1,19 +1,8 @@
-/* .add-playlist-area {
-    background-color: #3e195e;
-    padding: 30px 10px;
-    width: 40%;
-} */
-
-/* h2 {
-    color: white;
-} */
-
 .playlist-title-area {
     margin: 20px auto;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
 }
 
 .playlist-title-area h3 {
@@ -25,6 +14,7 @@
 .playlist-title-area input {
     border-radius: 20px;
     padding: 10px 20px;
+    margin-top: 10px;
     border: none;
 }
 
@@ -46,4 +36,10 @@
 
 .custom-playlist h2 {
     margin-bottom: 30px !important;
+}
+
+@media (max-width: 767px) {
+    .playlist-title-area {
+        align-items: center;
+    }
 }

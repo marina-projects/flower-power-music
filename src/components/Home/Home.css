@@ -1,3 +1,60 @@
 .home-content {
     width: 100%;
 }
+
+.playlists-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    padding-bottom: 80px;
+  }
+  
+  .search-results-area, .add-playlist-area {
+    background-color: #652a68;
+    padding: 30px 30px;
+    border-radius: 5px;  
+  }
+  
+  .search-results-area {
+    width: 50%;
+    border-radius: 30px; 
+  }
+  
+  .add-playlist-area {
+    width: 30%;
+    border-radius: 30px; 
+  }
+  
+  .custom-playlist {
+    width: 100%;
+  }
+
+  .playlists-area h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .add-playlist-area h3 {
+    font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .search-results-area, .add-playlist-area {
+        width: 80%;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .add-playlist-area h3 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .search-results-area .track-texts {
+        margin-left: 10px;
+    }
+  }
+  

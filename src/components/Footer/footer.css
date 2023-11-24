@@ -9,6 +9,6 @@
   
   @media(max-width: 767px) {
     .footer {
-      min-height: 30px;
+      min-height: 90px;
     }
   }

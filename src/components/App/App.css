@@ -8,7 +8,6 @@ html, body, #root {
   margin: 0;
   height: 100%;
   background-color: #FCF6E5;
-
 }
 
 div {
@@ -28,30 +27,3 @@ div {
   margin: 10px auto;
 }
 
-.playlists-area {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  padding-bottom: 80px;
-}
-
-.search-results-area, .add-playlist-area {
-  background-color: #652a68;
-  padding: 30px 30px;
-  border-radius: 5px;  
-}
-
-.search-results-area {
-  width: 50%;
-  border-radius: 30px; 
-}
-
-.add-playlist-area {
-  width: 30%;
-  border-radius: 30px; 
-}
-
-.custom-playlist {
-  width: 100%;
-}

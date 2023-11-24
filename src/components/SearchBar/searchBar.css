@@ -7,28 +7,13 @@
     width: 100%;
 }
 
-.search-bar-area form {
-    display: flex;
-    flex-direction: column;
-}
-
-.search-bar-area input {
-    height: 30px;
-    border-radius: 100px;
-    border: none;
-    padding: 5px 20px;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 .search-bar-area button {
-    padding: 20px 40px;
+    padding: 15px 35px;
     border: none;
     border-radius: 100px;
     background-color: #DD4B4B;
     color: white;
-    font-size: 28px;
+    font-size: 20px;
     /* text-transform: uppercase; */
 }
 
@@ -37,4 +22,10 @@
     transition-duration: .5s;
     transition-property: transform;
     cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .search-bar-area {
+        padding: 40px 0;
+    }
 }

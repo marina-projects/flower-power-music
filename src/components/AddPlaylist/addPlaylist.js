@@ -5,7 +5,7 @@ import AddedTrack from '../Track/AddedTrack/AddedTrack';
 function AddPlaylist (props) {
     return(
         <div className="custom-playlist">
-            <h2>Add to playlist</h2>
+            <h2>Add to your playlist on Spotify</h2>
             <div className='playlist-title-area'>
                 <h3>Enter playlist title: </h3>
                 <input type="text" placeholder='Create a title for your custom playlist' onChange={props.onTitle} value={props.inputValue} />

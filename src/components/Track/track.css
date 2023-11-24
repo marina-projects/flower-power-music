@@ -16,7 +16,13 @@
 }
 
 .track-texts p {
+    font-size: 16px;
     font-weight: 300;
+}
+
+.track-texts h3 {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .track-icon {
@@ -29,6 +35,6 @@
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
 
 }

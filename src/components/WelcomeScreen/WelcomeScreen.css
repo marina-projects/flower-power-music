@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 }
 
 .welcome-screen button {
@@ -13,7 +14,7 @@
     color: white;
     border: none;
     border-radius: 30px;
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
   }
 
@@ -25,18 +26,21 @@
 }
 
 .welcome-screen p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 20px;
-    color: rgb(35, 35, 35);
+    color: #472206;
     margin-bottom: 50px;
 }
 
 .welcome-screen h1 {
-    color: rgb(35, 35, 35);
+    color: #472206;
     font-weight: 500;
 }
 
 .welcome-screen h2 {
     color: #DD4B4B;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     font-weight: 500;
 }
