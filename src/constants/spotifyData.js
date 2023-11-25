@@ -4,7 +4,7 @@ export const PLAYLISTS_ENDPOINT = "https://api.spotify.com/v1/playlists/2F4zH00X
 // export const CLIENT_ID = "6712f703e1f04150b1dca75c9b8defac";
 export const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 export const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-export const REDIRECT_URL_AFTER_LOGIN = "http://localhost:3000/webapp";
+export const REDIRECT_URL_AFTER_LOGIN = "https://flower-power-music.netlify.app/";
 export const SCOPES = [
     "user-read-currently-playing",
     "user-read-playback-state",
