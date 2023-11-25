@@ -99,7 +99,8 @@ const HomeContent = (props) => {
       <div className='playlists-area' style={{ display: playlistAreaDisplay }}>
         <div className="search-results-area">
           <h2>Listen to this sunny songs!</h2>
-          <SearchResults results={props.resultArray} onAddTrack={addTrack} token={props.token} />
+          <p className="desktop-description">You can listen to this previews of the songs, and if you like it - to add to your own psotufy playlist by clicking on plus button. Your playlist will appear at the rigth of the app.</p>
+          <p className="mobile-description">You can listen to this previews of the songs, and if you like it - to add to your own psotufy playlist by clicking on plus button. Your playlist will appear at the bottom of the app.</p>          <SearchResults results={props.resultArray} onAddTrack={addTrack} token={props.token} />
         </div>
         <div className="add-playlist-area" style={{ display: sidebarDisplay }} >
           <AddPlaylist playlistArray={playlist} onRemove={removeTrack} onTitle={inputPlaylistTitle} inputValue={playlistTitle} sendPlaylistToSpotify={sendPlaylistToSpotify} />
