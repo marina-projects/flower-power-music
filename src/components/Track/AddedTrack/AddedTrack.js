@@ -2,37 +2,33 @@ import '../../Track/track.css';
 import React, { useCallback } from 'react';
 
 function AddedTrack (props) {
+    const { onAdd, onRemove, track, isRemoval, song, singer } = props;
 
-    const addTrack = useCallback(
-        (event) => {
-          props.onAdd(props.track);
-        },
-        [props]
-      );
+    const addTrack = useCallback(() => {
+        onAdd(track);
+    }, [onAdd, track]);
 
-    const removeTrack = useCallback(
-        (event) => {
-            props.onRemove(props.track);
-        }, [props]
-    )
+    const removeTrack = useCallback(() => {
+        onRemove(track);
+    }, [onRemove, track]);
 
     const renderButton = () => {
-        if(props.isRemoval) {
+        if (isRemoval) {
             return (
-                <button onClick={removeTrack} >-</button>
-            ) 
+                <button onClick={removeTrack}>-</button>
+            )
         } else {
             return (
                 <button onClick={addTrack}>+</button>
             )
         }
-    } 
+    }
 
     return (
         <div className="track-area">
             <div className="track-texts">
-                <h3>{props.song}</h3>
-                <p>{props.singer}</p>
+                <h3>{song}</h3>
+                <p>{singer}</p>
             </div>
             {renderButton()}
         </div>
