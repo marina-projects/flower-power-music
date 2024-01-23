@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Flower Power Music react app
+
+This is [basic music app](https://flower-power-music.netlify.app/) that uses Spotify API to help users create, listen to and save playlist in their accounts.
+
+It allows users to log in with their Spotify credentials, upload playlists of 60-70s rock songs, add/remove tracks to a list  and save the favorite list to their Spotify account.
+
+This project is part of a off-line challenge from a Codecademy's Frontend developer path.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features
+Here's a quick summary of the functionalities in the app:
 
-In the project directory, you can run:
+- Welcome page with login via Spotify account
+- Home screen with a button "Get random 10 songs" that uploads tracks from Spotify
+- Search results - 10 random songs from 60-70th category
+- When results appear button changes to "Show another songs" - and uploads new random 10 songs
+- Each track in the list has a preview sound - users can listen to all songs
+- Each track is rendered in its individual box containing relevant info about it
+- Users can add tracks to favorite list and remove from it
+- Users can save favorite list to their Spotify account with one click
 
-### `yarn start`
+## Technologies
+- React.js
+- React Router
+- React Hooks
+- HTML, CSS, JavaScript
+- Create React App
+- Node.js & npm
+- Rest API 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What I Learned
+- Rest API integration
+- General React features I have studied previously, but with increased complexity
+- Stateful components
+- useState and useEffect hooks
+- Using Bootstrap and MUI material libraries to set forms
+- Using Figma to create my own web-design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Using this project
+To run this project:
 
-### `yarn test`
+- you will need a node environment
+- clone or fork this project
+- install npm in the root of the project directory
+- to run the app in development mode, in the project directory run npm start and open http://localhost:3000 to view it in the browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Just to see:
+- go to [Flower Power Music](https://flower-power-music.netlify.app/)
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributions and Feedback
+Thanks for taking a look at this code. Feel free to add, remove, change, and comment this App. I'll appreciate any thoughts or ideas that about how to make it better. 
