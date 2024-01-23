@@ -27,7 +27,8 @@ Here's a quick summary of the functionalities in the app:
 - HTML, CSS, JavaScript
 - Create React App
 - Node.js & npm
-- Rest API 
+- Rest API
+- Responsive design
 
 ## What I Learned
 - Rest API integration
